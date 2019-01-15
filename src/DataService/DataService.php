@@ -763,7 +763,7 @@ class DataService
      * @return IPPIntuitEntity Returns the created version of the entity.
      * @throws IdsException
      */
-    public function Add($entity, $queryParam="")
+    public function Add($entity, $queryParams="")
     {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Add.");
 

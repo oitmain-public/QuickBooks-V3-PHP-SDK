@@ -763,7 +763,7 @@ class DataService
      * @return IPPIntuitEntity Returns the created version of the entity.
      * @throws IdsException
      */
-    public function Add($entity)
+    public function Add($entity, $queryParam="")
     {
         $this->serviceContext->IppConfiguration->Logger->RequestLog->Log(TraceLevel::Info, "Called Method Add.");
 
@@ -783,6 +783,8 @@ class DataService
 
         $uri = $this->handleTaxService($entity, $resourceURI);
 
+        $uri .= "?" . $queryParams;
+        
         // Send request
         return $this->sendRequestParseResponseBodyAndHandleHttpError($entity, $uri, $httpsPostBody, DataService::ADD);
     }
